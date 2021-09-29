@@ -1,0 +1,1 @@
+The .txt files in this folder are present for being used by different programs using FILE I/O
