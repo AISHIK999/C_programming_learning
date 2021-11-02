@@ -45,13 +45,13 @@ int main()
     head->data = a;
     head->next = second;
 
-    head->data = a;
+    head->data = b;
     head->next = third;
 
-    head->data = a;
+    head->data = c;
     head->next = last;
 
-    head->data = a;
+    head->data = d;
     head->next = NULL;
 
     return 0;
