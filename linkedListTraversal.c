@@ -1,5 +1,5 @@
 /*
-C program to store four elements in a linked list
+C program to store four elements in a linked list and print them
 
 */
 #include <stdio.h>
@@ -13,6 +13,17 @@ struct Node
     int data;
     struct Node *next;
 };
+
+void traversePrint(struct Node * ptr){
+    int i=1;
+    while (ptr != NULL)
+    {
+        printf("The element number %d is: %d\n", i, ptr -> data);
+        ptr = ptr -> next;
+        i++;
+    }
+    
+}
 
 int main()
 {
@@ -53,6 +64,9 @@ int main()
 
     last->data = d;
     last->next = NULL;
+
+    //Traverse and print elements inside a node
+    traversePrint(head);
 
     return 0;
 }
