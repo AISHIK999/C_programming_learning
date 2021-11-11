@@ -1,4 +1,4 @@
-// C program to delete the head node of a linked list
+// C program to delete the node at the index provided by the user
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,11 +12,19 @@ struct Node
     struct Node *next;
 };
 
-struct Node *deleteHead(struct Node *head)
+struct Node *deleteIndex(struct Node *head, int index)
 {
-    struct Node *ptr = head;
-    head = head->next;
-    free(ptr);
+    struct Node *start = head;
+    struct Node *new = head->next;
+
+    for (int i = 0; i < index - 1; i++)
+    {
+        start = start->next;
+        new = new->next;
+    }
+
+    start->next = new->next;
+    free(new);
     return head;
 }
 
@@ -34,7 +42,7 @@ void traversePrint(struct Node *ptr)
 int main()
 {
     //Create integer type variables that
-    int a, b, c, d, ans;
+    int a, b, c, d, ans, ind;
 
     //Create the nodes
     struct Node *head;
@@ -74,17 +82,19 @@ int main()
     //Traverse and print elements inside a node
     traversePrint(head);
 
-    //Ask use whether to delete head or not
-    printf("Do you wish to delete the head node?\n");
+    //Ask use whether to delete a node or not
+    printf("Do you wish to delete the a node?\n");
     printf("Enter '1' to accept:\n");
     scanf("%d", &ans);
 
-    printf("*****DELETING HEAD NODE*****\n\n");
     if (ans == 1)
     {
-        head = deleteHead(head);
+        printf("Enter the node which you wish to delete:\n");
+        scanf("%d", &ind);
+        printf("***** DELETING NODE NUMBER %d *****\n\n", ind);
+        deleteIndex(head, ind-1);
+        printf("SUCCESS!\n");
     }
-    printf("SUCCESS!\n");
 
     traversePrint(head);
 
