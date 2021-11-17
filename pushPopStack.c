@@ -39,7 +39,7 @@ int fullSta(struct stack *ptr, int size) //Function to to return whether the sta
     }
 }
 
-void push(struct stack *ptr, int num, int size)
+void push(struct stack *ptr, int num, int size)     //Function to perform push operation
 {
     if (fullSta(ptr, size))
     {
@@ -52,7 +52,7 @@ void push(struct stack *ptr, int num, int size)
     }
 }
 
-int pop(struct stack *ptr)
+int pop(struct stack *ptr)      // Function to perform pop operation
 {
     if (emptySta(ptr))
     {
